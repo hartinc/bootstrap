@@ -214,9 +214,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Jasny Bootstrap\'s JavaScr
       }, 1)
     }
     //disable scrolling on mobiles (they ignore overflow:hidden)
-    $('body').on('touchmove.bs', function(e) {
+    /*$('body').on('touchmove.bs', function(e) {
       e.preventDefault();
-    });
+    });*/
+    $('body').on('touchmove.bs', function (e) { if (!$(e.target).is('#myNavmenu, #myNavmenu ul, #myNavmenu li, #myNavmenu li a')) { e.preventDefault(); } });
   }
 
   OffCanvas.prototype.enableScrolling = function() {
